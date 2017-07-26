@@ -61,12 +61,23 @@
   window.addEventListener('keydown', e => {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     if (!audio) return;
-
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
+    // Play audio file from the file
     audio.currentTime = 0;
     audio.play();
+
+    // Add CSS class for visual pop
+    key.classList.add('playing');
   });
+
+  function removeTransition(e) {
+    // Filter to only run once, since many transforms happen in CSS on keydown
+    if(e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+  }
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 </script>
 
 
