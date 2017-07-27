@@ -86,9 +86,21 @@
       const minutesDegrees = minutes * 6 + 90;
       const hoursDegrees = hours * 30 + 90;
 
+      correctTwitch(secondHand, seconds);
+      correctTwitch(minuteHand, minutes);
+      correctTwitch(hourHand, hours);
+
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
       minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
       hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    }
+
+    function correctTwitch(element, time) {
+      if (time === 0) {
+        element.style.transition = "0s";
+      } else if(time === 1) {
+        element.style.transition = "0.05s";
+      }
     }
 
     setInterval(setDate, 1000);
