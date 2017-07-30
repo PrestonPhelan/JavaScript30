@@ -43,6 +43,9 @@
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    window.three = inventors.sort( (el1, el2) => (
+      el1.year - el2.year
+    ))
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
