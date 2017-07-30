@@ -64,11 +64,22 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    window.seven = people.sort( (el1, el2) => (
+      el1 < el2 ? -1 : 1
+    ))
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    window.eight = data.reduce( (acc, el) => {
+      if (acc[el]) {
+        acc[el]++
+      } else {
+        acc[el] = 1
+      }
+      return acc;
+    }, {});
   </script>
 </body>
 </html>
