@@ -67,9 +67,9 @@
     }
 
     .panel > *:first-child { transform: translateY(-100%); }
-    .panel.open-active > *:first-child { transform: tranlateY(0%); }
+    .panel.open-active > *:first-child { transform: translateY(0%); }
     .panel > *:last-child { transform: translateY(100%); }
-    .panel.open-active > *:last-child { transform: tranlateY(0%); }
+    .panel.open-active > *:last-child { transform: translateY(0%); }
 
     .panel p {
       text-transform: uppercase;
@@ -126,6 +126,7 @@
 
     function toggleActive(e) {
       if (e.propertyName.includes('flex')) {
+        console.log("Hello");
         this.classList.toggle('open-active');
       }
     }
