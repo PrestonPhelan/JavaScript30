@@ -22,6 +22,13 @@ fetch(endpoint)
   .then(res => res.json())
   .then(data => cities.push(...data));
 
+function findMatches(textToMatch, cityList) {
+  return cities.filter(place => {
+    const regex = new RegExp(textToMatch, 'gi');
+    return place.city.match(regex) || place.state.match(regex)
+  });
+}
+
 </script>
   </body>
 </html>
