@@ -99,6 +99,37 @@
   </div>
 
 <script>
+const items = [...document.querySelectorAll(".item")];
+let lastSelected = items[0];
+let multiSelect = false;
+
+const checkItem = element => {
+  const inputElement = element.querySelector("input")
+  inputElement.hasAttribute("checked") ?
+    inputElement.removeAttribute("checked") :
+    inputElement.setAttribute("checked", "checked");
+}
+
+const selectAll = item => {
+  const lastSelectedIdx = items.findIndex(lastSelected);
+  const newItemIdx = itesm.findIndex(item);
+  const selectedArray =
+    lastSelectedIdx < newItemIdx ?
+    items.slice(lastSelectedIdx + 1, newItemIdx + 1) :
+    items.slice(newItemIdx, lastSelectedIdx);
+  selectedArray.forEach(checkItem);
+}
+
+items.forEach(item => item.addEventListener("click", e => {
+  if (multiSelect) selectAll(e.target);
+  lastSelected = e.target;
+  console.log(lastSelected);
+}));
+
+// Add event listeners to window, for Shift key down & up
+// Should toggle multiSelect;
+// document.addEventListener('keydown')
+
 </script>
 </body>
 </html>
