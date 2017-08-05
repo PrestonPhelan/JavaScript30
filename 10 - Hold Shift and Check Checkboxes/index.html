@@ -99,15 +99,14 @@
   </div>
 
 <script>
-const items = [...document.querySelectorAll(".item")];
+const items = [...document.querySelectorAll(".item input")];
 let lastSelected = items[0];
 let multiSelect = false;
 
 const checkItem = element => {
-  const inputElement = element.querySelector("input")
-  inputElement.hasAttribute("checked") ?
-    inputElement.removeAttribute("checked") :
-    inputElement.setAttribute("checked", "checked");
+  element.hasAttribute("checked") ?
+    element.removeAttribute("checked") :
+    element.setAttribute("checked", "checked");
 }
 
 const selectAll = item => {
@@ -127,6 +126,19 @@ items.forEach(item => item.addEventListener("click", e => {
 }));
 
 // Add event listeners to window, for Shift key down & up
+document.addEventListener("keydown", e => {
+  if (e.key === "Shift") multiSelect = true;
+  console.log(multiSelect);
+});
+
+document.addEventListener("keyup", e => {
+  if (e.key === "Shift") multiSelect = false;
+  console.log(multiSelect);
+})
+  // document.addEventListener "Shift Key Down"
+    // Set multiSelect to true
+  // document.addEventListener "Shift Key Up"
+    // Set multiSelect to false
 // Should toggle multiSelect;
 // document.addEventListener('keydown')
 
