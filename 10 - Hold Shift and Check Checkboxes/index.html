@@ -111,8 +111,8 @@ const checkItem = element => {
 }
 
 const selectAll = item => {
-  const lastSelectedIdx = items.findIndex(lastSelected);
-  const newItemIdx = itesm.findIndex(item);
+  const lastSelectedIdx = items.indexOf(lastSelected);
+  const newItemIdx = items.indexOf(item);
   const selectedArray =
     lastSelectedIdx < newItemIdx ?
     items.slice(lastSelectedIdx + 1, newItemIdx + 1) :
