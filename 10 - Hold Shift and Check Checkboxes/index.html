@@ -119,7 +119,7 @@ const selectAll = item => {
   selectedArray.forEach(checkItem);
 }
 
-items.forEach(item => item.addEventListener("click", e => {
+const handleCheck = e => {
   e.preventDefault;
   if (multiSelect) {
     selectAll(e.target)
@@ -127,7 +127,9 @@ items.forEach(item => item.addEventListener("click", e => {
     checkItem(e.target);
   };
   lastSelected = e.target;
-}));
+}
+
+items.forEach(item => item.addEventListener("click", handleCheck));
 
 // Add event listeners to window, for Shift key down & up
 document.addEventListener("keydown", e => {
