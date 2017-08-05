@@ -120,7 +120,12 @@ const selectAll = item => {
 }
 
 items.forEach(item => item.addEventListener("click", e => {
-  if (multiSelect) selectAll(e.target);
+  e.preventDefault;
+  if (multiSelect) {
+    selectAll(e.target)
+  } else {
+    checkItem(e.target);
+  };
   lastSelected = e.target;
   console.log(lastSelected);
 }));
