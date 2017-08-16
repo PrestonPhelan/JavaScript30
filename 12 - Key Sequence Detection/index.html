@@ -8,18 +8,19 @@
 <body>
 <script>
 window.addEventListener('keyup', e => {
-  console.log(e.key);
+  // console.log(e.key);
   if (e.key === codeSequence[currentSequence.length]) {
     currentSequence.push(e.key);
   } else {
     currentSequence = [];
   }
-  console.log(currentSequence);
+  // console.log(currentSequence);
   if (currentSequence.length === 13) {
-    console.log("Successfully entered code!!!!");
+    // console.log("Successfully entered code!!!!");
+    cornify_add();
     currentSequence = [];
   }
-  console.log(currentSequence);
+  // console.log(currentSequence);
 })
 
 const codeSequence = [
@@ -38,9 +39,7 @@ const codeSequence = [
   "Enter"
 ];
 
-let currentSequence = [
-
-];
+let currentSequence = [];
 </script>
 </body>
 </html>
