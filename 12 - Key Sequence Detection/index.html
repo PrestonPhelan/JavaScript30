@@ -7,6 +7,40 @@
 </head>
 <body>
 <script>
+window.addEventListener('keyup', e => {
+  console.log(e.key);
+  if (e.key === codeSequence[currentSequence.length]) {
+    currentSequence.push(e.key);
+  } else {
+    currentSequence = [];
+  }
+  console.log(currentSequence);
+  if (currentSequence.length === 13) {
+    console.log("Successfully entered code!!!!");
+    currentSequence = [];
+  }
+  console.log(currentSequence);
+})
+
+const codeSequence = [
+  "ArrowUp",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowLeft",
+  "ArrowRight",
+  "a",
+  "a",
+  "b",
+  "b",
+  "Enter"
+];
+
+let currentSequence = [
+
+];
 </script>
 </body>
 </html>
